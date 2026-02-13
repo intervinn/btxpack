@@ -1,0 +1,23 @@
+[
+ {
+  "name": "example/assets/icon.png",
+  "x": 0,
+  "y": 0,
+  "w": 64,
+  "h": 64
+ },
+ {
+  "name": "example/assets/server-icon.png",
+  "x": 64,
+  "y": 0,
+  "w": 64,
+  "h": 64
+ },
+ {
+  "name": "example/assets/skin.png",
+  "x": 128,
+  "y": 0,
+  "w": 64,
+  "h": 64
+ }
+]

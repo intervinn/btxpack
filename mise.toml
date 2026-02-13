@@ -1,0 +1,5 @@
+[tools]
+go = "1.25.2"
+
+[tasks]
+test = "go run ./cmd/btxpack ./example/assets ./example/out/atlas.png ./example/out/atlas.json"
