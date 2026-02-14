@@ -7,7 +7,7 @@ Bare Texture Packer
 
 ## Install
 ```
-go install github.com/intervinn/btxpack/cmd@latest
+go install github.com/intervinn/btxpack/cmd/btxpack@latest
 ```
 
 ## Usage
