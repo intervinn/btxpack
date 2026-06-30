@@ -9,8 +9,8 @@ struct _btxpack_rec {
 	float height;
 };
 
-struct _btxpack_rec Btx_TestAssetsIconPng = { 0, 0, 64, 64 }; 
-struct _btxpack_rec Btx_TestAssetsServerIconPng = { 64, 0, 64, 64 }; 
-struct _btxpack_rec Btx_TestAssetsSkinPng = { 128, 0, 64, 64 }; 
+static struct _btxpack_rec Btx_TestAssetsIconPng = { 0, 0, 64, 64 }; 
+static struct _btxpack_rec Btx_TestAssetsServerIconPng = { 64, 0, 64, 64 }; 
+static struct _btxpack_rec Btx_TestAssetsSkinPng = { 128, 0, 64, 64 }; 
 
 #endif // __BTXPACK_ATLAS_META_H

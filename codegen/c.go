@@ -42,7 +42,7 @@ struct _btxpack_rec {
 	float height;
 };
 
-{{range .}}struct _btxpack_rec {{ToPascal .Name}} = { {{.X}}, {{.Y}}, {{.W}}, {{.H}} }; 
+{{range .}}static struct _btxpack_rec {{ToPascal .Name}} = { {{.X}}, {{.Y}}, {{.W}}, {{.H}} }; 
 {{end}}
 #endif // __BTXPACK_ATLAS_META_H
 `
