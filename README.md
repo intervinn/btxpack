@@ -16,7 +16,13 @@ Consumes folder of images, emits combined image and the metadata file
 btxpack -src=/assets -out=atlas.png -meta=atlas.json
 ```
 
+## Algorithms
+* `line` - places each assets one by one in a single line
+* `shelf` - fits all assets into a square with a size of power of two for better gpu something, uses a shelf algorithm for vertical stacking
+
 ## Changelog
+### 0.1.2
+* Added Shelf algorithm (`-alg=shelf`)
 ### 0.1.1
 * Refactor cmd arg parsing (remove cobra, use standard go flags)
 * Add C codegen

@@ -99,6 +99,29 @@ func WriteAtlasImg(recs []layout.Rec, to string) error {
 	return png.Encode(f, img)
 }
 
+func WriteAtlasImgSide(recs []layout.Rec, to string, side int) error {
+	w := side
+	h := side
+
+	img := image.NewRGBA(image.Rect(0, 0, w, h))
+
+	for _, v := range recs {
+		fmt.Printf("drawing %v\n", v.Src)
+		draw.Draw(img, v.Bounds().Add(image.Pt(v.X, v.Y)), v.Image, image.Point{0, 0}, draw.Src)
+	}
+
+	os.MkdirAll(filepath.Dir(to), os.ModePerm)
+	f, err := os.Create(to)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	fmt.Printf("writing image to %s\n", to)
+
+	return png.Encode(f, img)
+}
+
 func IsExtSupported(s string) bool {
 	return s == ".c" || s == ".h" || s == ".json"
 }

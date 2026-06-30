@@ -1,21 +1,182 @@
 [
  {
-  "name": "test/assets/icon.png",
+  "name": "test/assets/Thank You For Downloading My Game copy.png",
   "x": 0,
+  "y": 0,
+  "w": 960,
+  "h": 864
+ },
+ {
+  "name": "test/assets/Thank You For Downloading My Game.png",
+  "x": 960,
+  "y": 0,
+  "w": 960,
+  "h": 864
+ },
+ {
+  "name": "test/assets/Window copy 2 1.png",
+  "x": 1920,
+  "y": 0,
+  "w": 192,
+  "h": 192
+ },
+ {
+  "name": "test/assets/Window copy 2.png",
+  "x": 2112,
+  "y": 0,
+  "w": 192,
+  "h": 192
+ },
+ {
+  "name": "test/assets/Window copy 3.png",
+  "x": 2304,
+  "y": 0,
+  "w": 192,
+  "h": 192
+ },
+ {
+  "name": "test/assets/Window copy 31.png",
+  "x": 2496,
+  "y": 0,
+  "w": 192,
+  "h": 192
+ },
+ {
+  "name": "test/assets/Window copy.png",
+  "x": 2688,
+  "y": 0,
+  "w": 192,
+  "h": 192
+ },
+ {
+  "name": "test/assets/Window copy1.png",
+  "x": 2880,
+  "y": 0,
+  "w": 192,
+  "h": 192
+ },
+ {
+  "name": "test/assets/Window.png",
+  "x": 3072,
+  "y": 0,
+  "w": 192,
+  "h": 192
+ },
+ {
+  "name": "test/assets/Window1.png",
+  "x": 3264,
+  "y": 0,
+  "w": 192,
+  "h": 192
+ },
+ {
+  "name": "test/assets/communityicon copy.png",
+  "x": 3456,
+  "y": 0,
+  "w": 184,
+  "h": 184
+ },
+ {
+  "name": "test/assets/communityicon copy1.png",
+  "x": 3640,
+  "y": 0,
+  "w": 184,
+  "h": 184
+ },
+ {
+  "name": "test/assets/communityicon.png",
+  "x": 3824,
+  "y": 0,
+  "w": 184,
+  "h": 184
+ },
+ {
+  "name": "test/assets/communityicon1.png",
+  "x": 4008,
+  "y": 0,
+  "w": 184,
+  "h": 184
+ },
+ {
+  "name": "test/assets/icon copy.png",
+  "x": 4192,
+  "y": 0,
+  "w": 144,
+  "h": 144
+ },
+ {
+  "name": "test/assets/icon copy1.png",
+  "x": 4336,
+  "y": 0,
+  "w": 144,
+  "h": 144
+ },
+ {
+  "name": "test/assets/icon.png",
+  "x": 4480,
+  "y": 0,
+  "w": 144,
+  "h": 144
+ },
+ {
+  "name": "test/assets/icon1.png",
+  "x": 4624,
+  "y": 0,
+  "w": 144,
+  "h": 144
+ },
+ {
+  "name": "test/assets/server-icon copy.png",
+  "x": 4768,
+  "y": 0,
+  "w": 64,
+  "h": 64
+ },
+ {
+  "name": "test/assets/server-icon copy1.png",
+  "x": 4832,
   "y": 0,
   "w": 64,
   "h": 64
  },
  {
   "name": "test/assets/server-icon.png",
-  "x": 64,
+  "x": 4896,
+  "y": 0,
+  "w": 64,
+  "h": 64
+ },
+ {
+  "name": "test/assets/server-icon1.png",
+  "x": 4960,
+  "y": 0,
+  "w": 64,
+  "h": 64
+ },
+ {
+  "name": "test/assets/skin copy.png",
+  "x": 5024,
+  "y": 0,
+  "w": 64,
+  "h": 64
+ },
+ {
+  "name": "test/assets/skin copy1.png",
+  "x": 5088,
   "y": 0,
   "w": 64,
   "h": 64
  },
  {
   "name": "test/assets/skin.png",
-  "x": 128,
+  "x": 5152,
+  "y": 0,
+  "w": 64,
+  "h": 64
+ },
+ {
+  "name": "test/assets/skin1.png",
+  "x": 5216,
   "y": 0,
   "w": 64,
   "h": 64

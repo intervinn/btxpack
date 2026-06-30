@@ -1,6 +1,9 @@
 package layout
 
-import "image"
+import (
+	"fmt"
+	"image"
+)
 
 type Img struct {
 	image.Rectangle
@@ -12,6 +15,14 @@ type Rec struct {
 	Img
 	X int
 	Y int
+}
+
+func (i Img) String() string {
+	return fmt.Sprintf("Img{%dx%d}", i.Bounds().Dx(), i.Bounds().Dy())
+}
+
+func (r Rec) String() string {
+	return fmt.Sprintf("Rec{%d,%d, %dx%d}", r.X, r.Y, r.Bounds().Dx(), r.Bounds().Dy())
 }
 
 // rn it just puts all sprites in line with eachother

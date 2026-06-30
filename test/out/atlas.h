@@ -9,8 +9,31 @@ struct _btxpack_rec {
 	float height;
 };
 
-static struct _btxpack_rec Btx_TestAssetsIconPng = { 0, 0, 64, 64 }; 
-static struct _btxpack_rec Btx_TestAssetsServerIconPng = { 64, 0, 64, 64 }; 
-static struct _btxpack_rec Btx_TestAssetsSkinPng = { 128, 0, 64, 64 }; 
+static struct _btxpack_rec Btx_TestAssetsThankYouForDownloadingMyGameCopyPng = { 0, 0, 960, 864 }; 
+static struct _btxpack_rec Btx_TestAssetsThankYouForDownloadingMyGamePng = { 960, 0, 960, 864 }; 
+static struct _btxpack_rec Btx_TestAssetsWindowCopy21Png = { 0, 864, 192, 192 }; 
+static struct _btxpack_rec Btx_TestAssetsWindowCopy2Png = { 192, 864, 192, 192 }; 
+static struct _btxpack_rec Btx_TestAssetsWindowCopy3Png = { 384, 864, 192, 192 }; 
+static struct _btxpack_rec Btx_TestAssetsWindowCopy31Png = { 576, 864, 192, 192 }; 
+static struct _btxpack_rec Btx_TestAssetsWindowCopyPng = { 768, 864, 192, 192 }; 
+static struct _btxpack_rec Btx_TestAssetsWindowCopy1Png = { 960, 864, 192, 192 }; 
+static struct _btxpack_rec Btx_TestAssetsWindowPng = { 1152, 864, 192, 192 }; 
+static struct _btxpack_rec Btx_TestAssetsWindow1Png = { 1344, 864, 192, 192 }; 
+static struct _btxpack_rec Btx_TestAssetsCommunityiconCopyPng = { 1536, 864, 184, 184 }; 
+static struct _btxpack_rec Btx_TestAssetsCommunityiconCopy1Png = { 1720, 864, 184, 184 }; 
+static struct _btxpack_rec Btx_TestAssetsCommunityiconPng = { 0, 1056, 184, 184 }; 
+static struct _btxpack_rec Btx_TestAssetsCommunityicon1Png = { 184, 1056, 184, 184 }; 
+static struct _btxpack_rec Btx_TestAssetsIconCopyPng = { 368, 1056, 144, 144 }; 
+static struct _btxpack_rec Btx_TestAssetsIconCopy1Png = { 512, 1056, 144, 144 }; 
+static struct _btxpack_rec Btx_TestAssetsIconPng = { 656, 1056, 144, 144 }; 
+static struct _btxpack_rec Btx_TestAssetsIcon1Png = { 800, 1056, 144, 144 }; 
+static struct _btxpack_rec Btx_TestAssetsServerIconCopyPng = { 944, 1056, 64, 64 }; 
+static struct _btxpack_rec Btx_TestAssetsServerIconCopy1Png = { 1008, 1056, 64, 64 }; 
+static struct _btxpack_rec Btx_TestAssetsServerIconPng = { 1072, 1056, 64, 64 }; 
+static struct _btxpack_rec Btx_TestAssetsServerIcon1Png = { 1136, 1056, 64, 64 }; 
+static struct _btxpack_rec Btx_TestAssetsSkinCopyPng = { 1200, 1056, 64, 64 }; 
+static struct _btxpack_rec Btx_TestAssetsSkinCopy1Png = { 1264, 1056, 64, 64 }; 
+static struct _btxpack_rec Btx_TestAssetsSkinPng = { 1328, 1056, 64, 64 }; 
+static struct _btxpack_rec Btx_TestAssetsSkin1Png = { 1392, 1056, 64, 64 }; 
 
 #endif // __BTXPACK_ATLAS_META_H
