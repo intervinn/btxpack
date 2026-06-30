@@ -1,37 +1,26 @@
 package btxpack
 
 import (
-	"encoding/json"
 	"fmt"
 	"image"
 	"image/draw"
 	"image/png"
 	"io/fs"
 	"os"
+	"path"
 	"path/filepath"
 	"strings"
+
+	"github.com/intervinn/btxpack/codegen"
+	"github.com/intervinn/btxpack/layout"
 )
-
-type Img struct {
-	image.Rectangle
-	Image image.Image
-	Src   string
-}
-
-type Meta struct {
-	Name string `json:"name"`
-	X    int    `json:"x"`
-	Y    int    `json:"y"`
-	W    int    `json:"w"`
-	H    int    `json:"h"`
-}
 
 func IsSupported(name string) bool {
 	return strings.HasSuffix(name, ".png")
 }
 
-func ScanDir(root string) ([]Img, error) {
-	res := []Img{}
+func ScanDir(root string) ([]layout.Img, error) {
+	res := []layout.Img{}
 
 	err := filepath.WalkDir(root, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {
@@ -53,7 +42,7 @@ func ScanDir(root string) ([]Img, error) {
 			return err
 		}
 
-		res = append(res, Img{
+		res = append(res, layout.Img{
 			Rectangle: img.Bounds(),
 			Image:     img,
 			Src:       path,
@@ -69,7 +58,7 @@ func ScanDir(root string) ([]Img, error) {
 	return res, nil
 }
 
-func getWidth(i []Rec) int {
+func getWidth(i []layout.Rec) int {
 	r := 0
 	for _, v := range i {
 		r += v.Bounds().Dx()
@@ -77,7 +66,7 @@ func getWidth(i []Rec) int {
 	return r
 }
 
-func getHeight(i []Rec) int {
+func getHeight(i []layout.Rec) int {
 	r := 0
 	for _, v := range i {
 		if v.Bounds().Dy() > r {
@@ -87,7 +76,7 @@ func getHeight(i []Rec) int {
 	return r
 }
 
-func WriteAtlasImg(recs []Rec, to string) error {
+func WriteAtlasImg(recs []layout.Rec, to string) error {
 	w := getWidth(recs)
 	h := getHeight(recs)
 
@@ -105,23 +94,34 @@ func WriteAtlasImg(recs []Rec, to string) error {
 	}
 	defer f.Close()
 
+	fmt.Printf("writing image to %s\n", to)
+
 	return png.Encode(f, img)
 }
 
-func WriteAtlasMeta(recs []Rec, to string) error {
+func IsExtSupported(s string) bool {
+	return s == ".c" || s == ".h" || s == ".json"
+}
+
+func WriteAtlasMeta(recs []layout.Rec, to string) error {
+	ext := path.Ext(to)
+	if !IsExtSupported(ext) {
+		return fmt.Errorf("unsupported format")
+	}
+
 	wd, err := os.Getwd()
 	if err != nil {
 		return err
 	}
 
-	metas := make([]Meta, len(recs))
+	metas := make([]layout.Meta, len(recs))
 	for i, v := range recs {
 		name, err := filepath.Rel(wd, v.Src)
 		if err != nil {
 			return err
 		}
 
-		metas[i] = Meta{
+		metas[i] = layout.Meta{
 			Name: name,
 			X:    v.X,
 			Y:    v.Y,
@@ -138,9 +138,14 @@ func WriteAtlasMeta(recs []Rec, to string) error {
 	}
 	defer f.Close()
 
-	e := json.NewEncoder(f)
-	e.SetIndent("", " ")
-	e.Encode(metas)
+	switch ext {
+	case ".json":
+		return codegen.WriteAtlasJson(metas, f)
+	case ".c":
+		return codegen.WriteAtlasC(metas, f)
+	case ".h":
+		return codegen.WriteAtlasC(metas, f)
+	}
 
-	return nil
+	return fmt.Errorf("unknown extension: %s", ext)
 }

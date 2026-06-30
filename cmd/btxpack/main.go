@@ -1,45 +1,54 @@
 package main
 
 import (
+	"flag"
+	"fmt"
 	"os"
 	"path"
 
 	"github.com/intervinn/btxpack"
-	"github.com/spf13/cobra"
+	"github.com/intervinn/btxpack/layout"
 )
 
-var root = &cobra.Command{
-	Use:   "btxpack",
-	Short: "Automatic texture packer and atlas generator",
-
-	Args: cobra.ExactArgs(3),
-
-	RunE: func(cmd *cobra.Command, args []string) error {
-		cwd, err := os.Getwd()
-		if err != nil {
-			return err
-		}
-		arg := args[0]
-
-		img, err := btxpack.ScanDir(path.Join(cwd, arg))
-		if err != nil {
-			return err
-		}
-
-		recs := btxpack.Layout(img)
-
-		if err := btxpack.WriteAtlasImg(recs, args[1]); err != nil {
-			return err
-		}
-
-		if err := btxpack.WriteAtlasMeta(recs, args[2]); err != nil {
-			return err
-		}
-
-		return nil
-	},
-}
-
 func main() {
-	root.Execute()
+	out := flag.String("out", "atlas.png", "destination file (atlas.png)")
+	src := flag.String("src", "assets", "assets directory")
+	meta := flag.String("meta", "atlas.json", "atlas metadata path (json,c)")
+
+	flag.Parse()
+
+	if out == nil || src == nil || *out == "" || *src == "" {
+		fmt.Println("params `out` and `src` are required")
+		flag.Usage()
+		os.Exit(1)
+	}
+
+	cwd, err := os.Getwd()
+	if err != nil {
+		fmt.Printf("failed to fetch wd: %v\n", err)
+		flag.Usage()
+		os.Exit(1)
+	}
+
+	img, err := btxpack.ScanDir(path.Join(cwd, *src))
+	if err != nil {
+		fmt.Printf("failed to fetch scan dir: %v\n", err)
+		flag.Usage()
+		os.Exit(1)
+	}
+
+	recs := layout.Layout(img)
+
+	if err := btxpack.WriteAtlasImg(recs, *out); err != nil {
+		fmt.Printf("failed to write atlas: %v\n", err)
+		flag.Usage()
+		os.Exit(1)
+	}
+
+	if err := btxpack.WriteAtlasMeta(recs, *meta); err != nil {
+		fmt.Printf("failed to write atlas meta: %v\n", err)
+		flag.Usage()
+		os.Exit(1)
+	}
+
 }

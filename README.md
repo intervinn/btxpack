@@ -16,5 +16,12 @@ Consumes folder of images, emits combined image and the metadata file.
 btxpack [assets] [atlas.png] [atlas.json]
 ```
 
+## Changelog
+### 0.1.1
+* Refactor cmd arg parsing (remove cobra, use standard go flags)
+* Add C codegen
+### 0.1.0
+* Initial release
+
 ## License
 MIT License.

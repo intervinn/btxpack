@@ -1,4 +1,12 @@
-package btxpack
+package layout
+
+import "image"
+
+type Img struct {
+	image.Rectangle
+	Image image.Image
+	Src   string
+}
 
 type Rec struct {
 	Img
@@ -21,4 +29,12 @@ func Layout(imgs []Img) []Rec {
 	}
 
 	return out
+}
+
+type Meta struct {
+	Name string `json:"name"`
+	X    int    `json:"x"`
+	Y    int    `json:"y"`
+	W    int    `json:"w"`
+	H    int    `json:"h"`
 }
