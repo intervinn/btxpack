@@ -11,9 +11,9 @@ go install github.com/intervinn/btxpack/cmd/btxpack@latest
 ```
 
 ## Usage
-Consumes folder of images, emits combined image and the metadata file.
+Consumes folder of images, emits combined image and the metadata file
 ```bash
-btxpack [assets] [atlas.png] [atlas.json]
+btxpack -src=/assets -out=atlas.png -meta=atlas.json
 ```
 
 ## Changelog
