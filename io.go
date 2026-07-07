@@ -126,7 +126,7 @@ func IsExtSupported(s string) bool {
 	return s == ".c" || s == ".h" || s == ".json"
 }
 
-func WriteAtlasMeta(recs []layout.Rec, to string) error {
+func WriteAtlasMeta(recs []layout.Rec, to string, raylib bool) error {
 	ext := path.Ext(to)
 	if !IsExtSupported(ext) {
 		return fmt.Errorf("unsupported format")
@@ -164,9 +164,10 @@ func WriteAtlasMeta(recs []layout.Rec, to string) error {
 	switch ext {
 	case ".json":
 		return codegen.WriteAtlasJson(metas, f)
-	case ".c":
-		return codegen.WriteAtlasC(metas, f)
-	case ".h":
+	case ".c", ".h":
+		if raylib {
+			return codegen.WriteAtlasRaylibC(metas, f)
+		}
 		return codegen.WriteAtlasC(metas, f)
 	}
 
