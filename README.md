@@ -21,6 +21,8 @@ btxpack -src=/assets -out=atlas.png -meta=atlas.json
 * `shelf` - fits all assets into a square with a size of power of two for better gpu something, uses a shelf algorithm for vertical stacking
 
 ## Changelog
+### 0.1.4
+* C codegen output is now an stb header
 ### 0.1.3
 * Adjust C codegen
 * Add raylib C codegen (`-raylib`)

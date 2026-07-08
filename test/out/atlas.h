@@ -2,38 +2,39 @@
 #ifndef __BTXPACK_ATLAS_META_H
 #define __BTXPACK_ATLAS_META_H
 
-struct _btxpack_rec {
-	float x;
-	float y;
-	float width;
-	float height;
-};
+#include "raylib.h"
 
-static struct _btxpack_rec Btx_TestAssetsThankYouForDownloadingMyGameCopyPng = { 0, 0, 960, 864 }; 
-static struct _btxpack_rec Btx_TestAssetsThankYouForDownloadingMyGamePng = { 960, 0, 960, 864 }; 
-static struct _btxpack_rec Btx_TestAssetsWindowCopy21Png = { 0, 864, 192, 192 }; 
-static struct _btxpack_rec Btx_TestAssetsWindowCopy2Png = { 192, 864, 192, 192 }; 
-static struct _btxpack_rec Btx_TestAssetsWindowCopy3Png = { 384, 864, 192, 192 }; 
-static struct _btxpack_rec Btx_TestAssetsWindowCopy31Png = { 576, 864, 192, 192 }; 
-static struct _btxpack_rec Btx_TestAssetsWindowCopyPng = { 768, 864, 192, 192 }; 
-static struct _btxpack_rec Btx_TestAssetsWindowCopy1Png = { 960, 864, 192, 192 }; 
-static struct _btxpack_rec Btx_TestAssetsWindowPng = { 1152, 864, 192, 192 }; 
-static struct _btxpack_rec Btx_TestAssetsWindow1Png = { 1344, 864, 192, 192 }; 
-static struct _btxpack_rec Btx_TestAssetsCommunityiconCopyPng = { 1536, 864, 184, 184 }; 
-static struct _btxpack_rec Btx_TestAssetsCommunityiconCopy1Png = { 1720, 864, 184, 184 }; 
-static struct _btxpack_rec Btx_TestAssetsCommunityiconPng = { 0, 1056, 184, 184 }; 
-static struct _btxpack_rec Btx_TestAssetsCommunityicon1Png = { 184, 1056, 184, 184 }; 
-static struct _btxpack_rec Btx_TestAssetsIconCopyPng = { 368, 1056, 144, 144 }; 
-static struct _btxpack_rec Btx_TestAssetsIconCopy1Png = { 512, 1056, 144, 144 }; 
-static struct _btxpack_rec Btx_TestAssetsIconPng = { 656, 1056, 144, 144 }; 
-static struct _btxpack_rec Btx_TestAssetsIcon1Png = { 800, 1056, 144, 144 }; 
-static struct _btxpack_rec Btx_TestAssetsServerIconCopyPng = { 944, 1056, 64, 64 }; 
-static struct _btxpack_rec Btx_TestAssetsServerIconCopy1Png = { 1008, 1056, 64, 64 }; 
-static struct _btxpack_rec Btx_TestAssetsServerIconPng = { 1072, 1056, 64, 64 }; 
-static struct _btxpack_rec Btx_TestAssetsServerIcon1Png = { 1136, 1056, 64, 64 }; 
-static struct _btxpack_rec Btx_TestAssetsSkinCopyPng = { 1200, 1056, 64, 64 }; 
-static struct _btxpack_rec Btx_TestAssetsSkinCopy1Png = { 1264, 1056, 64, 64 }; 
-static struct _btxpack_rec Btx_TestAssetsSkinPng = { 1328, 1056, 64, 64 }; 
-static struct _btxpack_rec Btx_TestAssetsSkin1Png = { 1392, 1056, 64, 64 }; 
+#ifdef BTXPACK_IMPLEMENTATION
+	#define BTX_API const
+#else
+	#define BTX_API extern const
+#endif
+
+BTX_API Rectangle Btx_TestAssetsThankYouForDownloadingMyGameCopyPng = { 0, 0, 960, 864 }; 
+BTX_API Rectangle Btx_TestAssetsThankYouForDownloadingMyGamePng = { 960, 0, 960, 864 }; 
+BTX_API Rectangle Btx_TestAssetsWindowCopy21Png = { 1920, 0, 192, 192 }; 
+BTX_API Rectangle Btx_TestAssetsWindowCopy2Png = { 2112, 0, 192, 192 }; 
+BTX_API Rectangle Btx_TestAssetsWindowCopy3Png = { 2304, 0, 192, 192 }; 
+BTX_API Rectangle Btx_TestAssetsWindowCopy31Png = { 2496, 0, 192, 192 }; 
+BTX_API Rectangle Btx_TestAssetsWindowCopyPng = { 2688, 0, 192, 192 }; 
+BTX_API Rectangle Btx_TestAssetsWindowCopy1Png = { 2880, 0, 192, 192 }; 
+BTX_API Rectangle Btx_TestAssetsWindowPng = { 3072, 0, 192, 192 }; 
+BTX_API Rectangle Btx_TestAssetsWindow1Png = { 3264, 0, 192, 192 }; 
+BTX_API Rectangle Btx_TestAssetsCommunityiconCopyPng = { 3456, 0, 184, 184 }; 
+BTX_API Rectangle Btx_TestAssetsCommunityiconCopy1Png = { 3640, 0, 184, 184 }; 
+BTX_API Rectangle Btx_TestAssetsCommunityiconPng = { 3824, 0, 184, 184 }; 
+BTX_API Rectangle Btx_TestAssetsCommunityicon1Png = { 4008, 0, 184, 184 }; 
+BTX_API Rectangle Btx_TestAssetsIconCopyPng = { 4192, 0, 144, 144 }; 
+BTX_API Rectangle Btx_TestAssetsIconCopy1Png = { 4336, 0, 144, 144 }; 
+BTX_API Rectangle Btx_TestAssetsIconPng = { 4480, 0, 144, 144 }; 
+BTX_API Rectangle Btx_TestAssetsIcon1Png = { 4624, 0, 144, 144 }; 
+BTX_API Rectangle Btx_TestAssetsServerIconCopyPng = { 4768, 0, 64, 64 }; 
+BTX_API Rectangle Btx_TestAssetsServerIconCopy1Png = { 4832, 0, 64, 64 }; 
+BTX_API Rectangle Btx_TestAssetsServerIconPng = { 4896, 0, 64, 64 }; 
+BTX_API Rectangle Btx_TestAssetsServerIcon1Png = { 4960, 0, 64, 64 }; 
+BTX_API Rectangle Btx_TestAssetsSkinCopyPng = { 5024, 0, 64, 64 }; 
+BTX_API Rectangle Btx_TestAssetsSkinCopy1Png = { 5088, 0, 64, 64 }; 
+BTX_API Rectangle Btx_TestAssetsSkinPng = { 5152, 0, 64, 64 }; 
+BTX_API Rectangle Btx_TestAssetsSkin1Png = { 5216, 0, 64, 64 }; 
 
 #endif // __BTXPACK_ATLAS_META_H
