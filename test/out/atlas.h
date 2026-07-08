@@ -4,37 +4,31 @@
 
 #include "raylib.h"
 
-#ifdef BTXPACK_IMPLEMENTATION
-    #define BTX_RECT(name, x, y, w, h) const Rectangle name = { x, y, w, h };
-#else
-    #define BTX_RECT(name, x, y, w, h) extern const Rectangle name;
-#endif
-
-BTX_RECT(Btx_TestAssetsThankYouForDownloadingMyGameCopyPng, 0, 0, 960, 864);  
-BTX_RECT(Btx_TestAssetsThankYouForDownloadingMyGamePng, 960, 0, 960, 864);  
-BTX_RECT(Btx_TestAssetsWindowCopy21Png, 1920, 0, 192, 192);  
-BTX_RECT(Btx_TestAssetsWindowCopy2Png, 2112, 0, 192, 192);  
-BTX_RECT(Btx_TestAssetsWindowCopy3Png, 2304, 0, 192, 192);  
-BTX_RECT(Btx_TestAssetsWindowCopy31Png, 2496, 0, 192, 192);  
-BTX_RECT(Btx_TestAssetsWindowCopyPng, 2688, 0, 192, 192);  
-BTX_RECT(Btx_TestAssetsWindowCopy1Png, 2880, 0, 192, 192);  
-BTX_RECT(Btx_TestAssetsWindowPng, 3072, 0, 192, 192);  
-BTX_RECT(Btx_TestAssetsWindow1Png, 3264, 0, 192, 192);  
-BTX_RECT(Btx_TestAssetsCommunityiconCopyPng, 3456, 0, 184, 184);  
-BTX_RECT(Btx_TestAssetsCommunityiconCopy1Png, 3640, 0, 184, 184);  
-BTX_RECT(Btx_TestAssetsCommunityiconPng, 3824, 0, 184, 184);  
-BTX_RECT(Btx_TestAssetsCommunityicon1Png, 4008, 0, 184, 184);  
-BTX_RECT(Btx_TestAssetsIconCopyPng, 4192, 0, 144, 144);  
-BTX_RECT(Btx_TestAssetsIconCopy1Png, 4336, 0, 144, 144);  
-BTX_RECT(Btx_TestAssetsIconPng, 4480, 0, 144, 144);  
-BTX_RECT(Btx_TestAssetsIcon1Png, 4624, 0, 144, 144);  
-BTX_RECT(Btx_TestAssetsServerIconCopyPng, 4768, 0, 64, 64);  
-BTX_RECT(Btx_TestAssetsServerIconCopy1Png, 4832, 0, 64, 64);  
-BTX_RECT(Btx_TestAssetsServerIconPng, 4896, 0, 64, 64);  
-BTX_RECT(Btx_TestAssetsServerIcon1Png, 4960, 0, 64, 64);  
-BTX_RECT(Btx_TestAssetsSkinCopyPng, 5024, 0, 64, 64);  
-BTX_RECT(Btx_TestAssetsSkinCopy1Png, 5088, 0, 64, 64);  
-BTX_RECT(Btx_TestAssetsSkinPng, 5152, 0, 64, 64);  
-BTX_RECT(Btx_TestAssetsSkin1Png, 5216, 0, 64, 64);  
+static const Rectangle Btx_TestAssetsThankYouForDownloadingMyGameCopyPng = { 0, 0, 960, 864 };  
+static const Rectangle Btx_TestAssetsThankYouForDownloadingMyGamePng = { 960, 0, 960, 864 };  
+static const Rectangle Btx_TestAssetsWindowCopy21Png = { 1920, 0, 192, 192 };  
+static const Rectangle Btx_TestAssetsWindowCopy2Png = { 2112, 0, 192, 192 };  
+static const Rectangle Btx_TestAssetsWindowCopy3Png = { 2304, 0, 192, 192 };  
+static const Rectangle Btx_TestAssetsWindowCopy31Png = { 2496, 0, 192, 192 };  
+static const Rectangle Btx_TestAssetsWindowCopyPng = { 2688, 0, 192, 192 };  
+static const Rectangle Btx_TestAssetsWindowCopy1Png = { 2880, 0, 192, 192 };  
+static const Rectangle Btx_TestAssetsWindowPng = { 3072, 0, 192, 192 };  
+static const Rectangle Btx_TestAssetsWindow1Png = { 3264, 0, 192, 192 };  
+static const Rectangle Btx_TestAssetsCommunityiconCopyPng = { 3456, 0, 184, 184 };  
+static const Rectangle Btx_TestAssetsCommunityiconCopy1Png = { 3640, 0, 184, 184 };  
+static const Rectangle Btx_TestAssetsCommunityiconPng = { 3824, 0, 184, 184 };  
+static const Rectangle Btx_TestAssetsCommunityicon1Png = { 4008, 0, 184, 184 };  
+static const Rectangle Btx_TestAssetsIconCopyPng = { 4192, 0, 144, 144 };  
+static const Rectangle Btx_TestAssetsIconCopy1Png = { 4336, 0, 144, 144 };  
+static const Rectangle Btx_TestAssetsIconPng = { 4480, 0, 144, 144 };  
+static const Rectangle Btx_TestAssetsIcon1Png = { 4624, 0, 144, 144 };  
+static const Rectangle Btx_TestAssetsServerIconCopyPng = { 4768, 0, 64, 64 };  
+static const Rectangle Btx_TestAssetsServerIconCopy1Png = { 4832, 0, 64, 64 };  
+static const Rectangle Btx_TestAssetsServerIconPng = { 4896, 0, 64, 64 };  
+static const Rectangle Btx_TestAssetsServerIcon1Png = { 4960, 0, 64, 64 };  
+static const Rectangle Btx_TestAssetsSkinCopyPng = { 5024, 0, 64, 64 };  
+static const Rectangle Btx_TestAssetsSkinCopy1Png = { 5088, 0, 64, 64 };  
+static const Rectangle Btx_TestAssetsSkinPng = { 5152, 0, 64, 64 };  
+static const Rectangle Btx_TestAssetsSkin1Png = { 5216, 0, 64, 64 };  
 
 #endif // __BTXPACK_ATLAS_META_H

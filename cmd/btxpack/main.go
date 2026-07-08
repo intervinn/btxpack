@@ -16,6 +16,7 @@ func main() {
 	meta := flag.String("meta", "atlas.json", "atlas metadata path (json,c)")
 	alg := flag.String("alg", "line", "algorithm (line,shelf)")
 	raylib := flag.Bool("raylib", false, "use raylib types for c")
+	stb := flag.Bool("stb", false, "generate stb header")
 
 	flag.Parse()
 
@@ -67,7 +68,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err := btxpack.WriteAtlasMeta(recs, *meta, *raylib); err != nil {
+	if err := btxpack.WriteAtlasMeta(recs, *meta, *raylib, *stb); err != nil {
 		fmt.Printf("failed to write atlas meta: %v\n", err)
 		flag.Usage()
 		os.Exit(1)
