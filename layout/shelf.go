@@ -1,13 +1,13 @@
 package layout
 
 import (
-	"fmt"
 	"math"
 	"slices"
 )
 
-// shelf algo
-func Shelf(imgs []Img) ([]Rec, int) {
+const AtlasMaxSize = 4096
+
+func Shelf(imgs []Img) (*Atlas, int, int) {
 	// 0. find a power two for max width
 	// 1. sort all imgs by height
 	// 2. place imgs left to right
@@ -15,13 +15,12 @@ func Shelf(imgs []Img) ([]Rec, int) {
 
 	s := 0
 	for _, i := range imgs {
-		s += i.Bounds().Dx() * i.Bounds().Dy()
+		s += i.Width * i.Height
 	}
 
 	iside := math.Sqrt(float64(s))
 	bside := iside * 1.1
 	var side int
-
 	for i := 0; ; i++ {
 		n := math.Pow(2, float64(i))
 		if n >= bside {
@@ -29,36 +28,28 @@ func Shelf(imgs []Img) ([]Rec, int) {
 			break
 		}
 	}
-	side = min(side, 4096)
-
-	fmt.Printf("side: %d\n", side)
+	side = min(side, AtlasMaxSize)
 
 	imgsh := make([]Img, len(imgs))
 	copy(imgsh, imgs)
 	slices.SortStableFunc(imgsh, func(a Img, b Img) int {
-		if a.Bounds().Dy() > b.Bounds().Dy() {
+		if a.Height > b.Height {
 			return -1
 		}
-		if a.Bounds().Dy() < b.Bounds().Dy() {
+		if a.Height < b.Height {
 			return 1
 		}
 		return 0
 	})
 
-	fmt.Println("SORTED")
-	for _, i := range imgsh {
-		fmt.Printf("%v\n", i.String())
-	}
-
 	recs := make([]Rec, 0)
-
 	mx := 0 // width counter
 	tl := 0 // current row tallest rec
 	x := 0
 	y := 0
 	for _, i := range imgsh {
-		w := i.Bounds().Dx()
-		h := i.Bounds().Dy()
+		w := i.Width
+		h := i.Height
 
 		if mx+w > side {
 			y += tl
@@ -70,15 +61,15 @@ func Shelf(imgs []Img) ([]Rec, int) {
 		tl = max(tl, h)
 
 		recs = append(recs, Rec{
-			Img: i,
-			X:   x,
-			Y:   y,
+			Name: i.Name,
+			W:    i.Width,
+			H:    i.Height,
+			X:    x,
+			Y:    y,
 		})
 		mx += w
 		x += w
 	}
 
-	fmt.Println(recs)
-
-	return recs, side
+	return &Atlas{Recs: recs}, side, side
 }

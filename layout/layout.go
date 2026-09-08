@@ -1,15 +1,21 @@
 package layout
 
-type Packer func()
+type Packer func([]Img) (*Atlas, int, int)
 
 type Atlas struct {
-	Imgs []Img
+	Recs []Rec
 }
 
 type Img struct {
 	Name   string
 	Width  int
 	Height int
-	X      int
-	Y      int
+}
+
+type Rec struct {
+	Name string
+	W    int
+	H    int
+	X    int
+	Y    int
 }
