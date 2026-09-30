@@ -4,6 +4,7 @@ Btxpack
 <h3 align="center">
 Bare Texture Packer
 </h3>
+<h6 align="center">did you think it'd be "better" texture packer?</h6>
 
 ## Install
 ```
@@ -21,6 +22,9 @@ btxpack -src=/assets -out=atlas.png -meta=atlas.json
 * `shelf` - fits all assets into a square with a size of power of two for better gpu something, uses a shelf algorithm for vertical stacking
 
 ## Changelog
+### 0.2.0
+* Full rewrite
+* `-macro` flag will generate macro constants instead of variables in C, raylib only for now
 ### 0.1.5
 * Hotfix C codegen
 ### 0.1.4
