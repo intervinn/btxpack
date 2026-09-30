@@ -4,31 +4,32 @@
 
 #include "raylib.h"
 
-static const Rectangle Btx_TestAssetsThankYouForDownloadingMyGameCopyPng = { 0, 0, 960, 864 };  
-static const Rectangle Btx_TestAssetsThankYouForDownloadingMyGamePng = { 960, 0, 960, 864 };  
-static const Rectangle Btx_TestAssetsWindowCopy21Png = { 1920, 0, 192, 192 };  
-static const Rectangle Btx_TestAssetsWindowCopy2Png = { 2112, 0, 192, 192 };  
-static const Rectangle Btx_TestAssetsWindowCopy3Png = { 2304, 0, 192, 192 };  
-static const Rectangle Btx_TestAssetsWindowCopy31Png = { 2496, 0, 192, 192 };  
-static const Rectangle Btx_TestAssetsWindowCopyPng = { 2688, 0, 192, 192 };  
-static const Rectangle Btx_TestAssetsWindowCopy1Png = { 2880, 0, 192, 192 };  
-static const Rectangle Btx_TestAssetsWindowPng = { 3072, 0, 192, 192 };  
-static const Rectangle Btx_TestAssetsWindow1Png = { 3264, 0, 192, 192 };  
-static const Rectangle Btx_TestAssetsCommunityiconCopyPng = { 3456, 0, 184, 184 };  
-static const Rectangle Btx_TestAssetsCommunityiconCopy1Png = { 3640, 0, 184, 184 };  
-static const Rectangle Btx_TestAssetsCommunityiconPng = { 3824, 0, 184, 184 };  
-static const Rectangle Btx_TestAssetsCommunityicon1Png = { 4008, 0, 184, 184 };  
-static const Rectangle Btx_TestAssetsIconCopyPng = { 4192, 0, 144, 144 };  
-static const Rectangle Btx_TestAssetsIconCopy1Png = { 4336, 0, 144, 144 };  
-static const Rectangle Btx_TestAssetsIconPng = { 4480, 0, 144, 144 };  
-static const Rectangle Btx_TestAssetsIcon1Png = { 4624, 0, 144, 144 };  
-static const Rectangle Btx_TestAssetsServerIconCopyPng = { 4768, 0, 64, 64 };  
-static const Rectangle Btx_TestAssetsServerIconCopy1Png = { 4832, 0, 64, 64 };  
-static const Rectangle Btx_TestAssetsServerIconPng = { 4896, 0, 64, 64 };  
-static const Rectangle Btx_TestAssetsServerIcon1Png = { 4960, 0, 64, 64 };  
-static const Rectangle Btx_TestAssetsSkinCopyPng = { 5024, 0, 64, 64 };  
-static const Rectangle Btx_TestAssetsSkinCopy1Png = { 5088, 0, 64, 64 };  
-static const Rectangle Btx_TestAssetsSkinPng = { 5152, 0, 64, 64 };  
-static const Rectangle Btx_TestAssetsSkin1Png = { 5216, 0, 64, 64 };  
+#define BTX_TEST_ASSETS_THANK_YOU_FOR_DOWNLOADING_MY_GAME_COPY_PNG = (Rectangle){ 0, 0, 960, 864 };  
+#define BTX_TEST_ASSETS_THANK_YOU_FOR_DOWNLOADING_MY_GAME_PNG = (Rectangle){ 960, 0, 960, 864 };  
+#define BTX_TEST_ASSETS_WINDOW_COPY_2_1_PNG = (Rectangle){ 0, 864, 192, 192 };  
+#define BTX_TEST_ASSETS_WINDOW_COPY_2_PNG = (Rectangle){ 192, 864, 192, 192 };  
+#define BTX_TEST_ASSETS_WINDOW_COPY_3_PNG = (Rectangle){ 384, 864, 192, 192 };  
+#define BTX_TEST_ASSETS_WINDOW_COPY_31_PNG = (Rectangle){ 576, 864, 192, 192 };  
+#define BTX_TEST_ASSETS_WINDOW_COPY_PNG = (Rectangle){ 768, 864, 192, 192 };  
+#define BTX_TEST_ASSETS_WINDOW_COPY1_PNG = (Rectangle){ 960, 864, 192, 192 };  
+#define BTX_TEST_ASSETS_WINDOW_PNG = (Rectangle){ 1152, 864, 192, 192 };  
+#define BTX_TEST_ASSETS_WINDOW1_PNG = (Rectangle){ 1344, 864, 192, 192 };  
+#define BTX_TEST_ASSETS_COMMUNITYICON_COPY_PNG = (Rectangle){ 1536, 864, 184, 184 };  
+#define BTX_TEST_ASSETS_COMMUNITYICON_COPY1_PNG = (Rectangle){ 1720, 864, 184, 184 };  
+#define BTX_TEST_ASSETS_COMMUNITYICON_PNG = (Rectangle){ 0, 1056, 184, 184 };  
+#define BTX_TEST_ASSETS_COMMUNITYICON1_PNG = (Rectangle){ 184, 1056, 184, 184 };  
+#define BTX_TEST_ASSETS_ICON_COPY_PNG = (Rectangle){ 368, 1056, 144, 144 };  
+#define BTX_TEST_ASSETS_ICON_COPY1_PNG = (Rectangle){ 512, 1056, 144, 144 };  
+#define BTX_TEST_ASSETS_ICON_PNG = (Rectangle){ 656, 1056, 144, 144 };  
+#define BTX_TEST_ASSETS_ICON1_PNG = (Rectangle){ 800, 1056, 144, 144 };  
+#define BTX_TEST_ASSETS_SERVER_ICON_COPY_PNG = (Rectangle){ 944, 1056, 64, 64 };  
+#define BTX_TEST_ASSETS_SERVER_ICON_COPY1_PNG = (Rectangle){ 1008, 1056, 64, 64 };  
+#define BTX_TEST_ASSETS_SERVER_ICON_PNG = (Rectangle){ 1072, 1056, 64, 64 };  
+#define BTX_TEST_ASSETS_SERVER_ICON1_PNG = (Rectangle){ 1136, 1056, 64, 64 };  
+#define BTX_TEST_ASSETS_SKIN_COPY_PNG = (Rectangle){ 1200, 1056, 64, 64 };  
+#define BTX_TEST_ASSETS_SKIN_COPY1_PNG = (Rectangle){ 1264, 1056, 64, 64 };  
+#define BTX_TEST_ASSETS_SKIN_PNG = (Rectangle){ 1328, 1056, 64, 64 };  
+#define BTX_TEST_ASSETS_SKIN1_PNG = (Rectangle){ 1392, 1056, 64, 64 };  
+
 
 #endif // __BTXPACK_ATLAS_META_H

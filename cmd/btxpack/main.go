@@ -11,6 +11,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"strings"
 
 	"github.com/intervinn/btxpack/gen"
 	"github.com/intervinn/btxpack/layout"
@@ -18,6 +19,7 @@ import (
 
 var gens = map[string]gen.Generator{
 	".c":    gen.ExportC,
+	".h":    gen.ExportC,
 	".json": gen.ExportJSON,
 	"":      gen.ExportNoOp,
 }
@@ -28,7 +30,12 @@ var packers = map[string]layout.Packer{
 
 func scanDir(root string) ([]layout.Img, error) {
 	res := make([]layout.Img, 0)
-	err := filepath.WalkDir(root, func(fpath string, d fs.DirEntry, err error) error {
+	cwd, err := os.Getwd()
+	if err != nil {
+		return nil, err
+	}
+
+	err = filepath.WalkDir(root, func(fpath string, d fs.DirEntry, err error) error {
 		if err != nil {
 			return err
 		}
@@ -47,8 +54,12 @@ func scanDir(root string) ([]layout.Img, error) {
 			return err
 		}
 
+		name, err := filepath.Rel(cwd, path.Join(root, d.Name()))
+		if err != nil {
+			return err
+		}
 		res = append(res, layout.Img{
-			Name:   path.Join(root, d.Name()),
+			Name:   name,
 			Width:  img.Bounds().Dx(),
 			Height: img.Bounds().Dy(),
 		})
@@ -92,6 +103,29 @@ func writePacked(to string, recs []layout.Rec, w int, h int) error {
 	return png.Encode(f, img)
 }
 
+func ignoreUndefinedFlags(args []string, fs *flag.FlagSet) []string {
+	var clean []string
+	for i := 0; i < len(args); i++ {
+		arg := args[i]
+
+		if strings.HasPrefix(arg, "-") {
+			name := strings.TrimLeft(arg, "-")
+			if idx := strings.Index(name, "="); idx != -1 {
+				name = name[:idx]
+			}
+
+			if fs.Lookup(name) == nil {
+				if !strings.Contains(arg, "=") && i+1 < len(args) && !strings.HasPrefix(args[i+1], "-") {
+					i++
+				}
+				continue
+			}
+		}
+		clean = append(clean, arg)
+	}
+	return clean
+}
+
 func main() {
 	if len(os.Args) < 2 {
 		log.Fatalln("more args")
@@ -102,11 +136,12 @@ func main() {
 		log.Fatalln("failed to fetch wd:", err)
 	}
 
-	src := flag.String("src", "source", "source directory")
-	alg := flag.String("alg", "shelf", "layout algorithm")
-	gen := flag.String("gen", "", "metadata destination")
-	out := flag.String("o", "", "(png) atlas destination file")
-	flag.Parse()
+	fs := flag.NewFlagSet(os.Args[0], flag.ContinueOnError)
+	src := fs.String("src", "source", "source directory")
+	alg := fs.String("alg", "shelf", "layout algorithm")
+	gen := fs.String("gen", "", "metadata destination")
+	out := fs.String("o", "", "(png) atlas destination file")
+	fs.Parse(ignoreUndefinedFlags(os.Args[1:], fs))
 
 	a := os.Args[2:]
 
